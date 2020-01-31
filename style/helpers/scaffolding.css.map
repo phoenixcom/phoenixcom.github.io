@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,CAAC,CAAC;EACE,UAAU,EAAE,UAAU;CACzB;;AACD,AAAA,IAAI,CAAC;EACD,SAAS,EAAE,KAAK;CACnB;;AACD,AAAA,MAAM,CAAC;EACH,aAAa,EAAE,cAAc;CAChC",
+    "sources": [
+        "scaffolding.scss"
+    ],
+    "names": [],
+    "file": "scaffolding.css"
+}

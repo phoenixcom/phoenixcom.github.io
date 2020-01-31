@@ -1,0 +1,315 @@
+.content {
+    margin: 0 auto;
+    max-width: 1200px;
+    .content_main_business {
+        margin: 20px 0;
+        @include flex-col;
+        justify-content: flex-start;
+        align-items: center;
+        .main_flow {
+            &_text {
+                min-height: 100vh;
+                padding: 200px 0;
+                overflow: hidden;
+                &_drive1 {
+                    display: block;
+                    text-align: center;
+                    color: white;
+                    font-family: 'Saira Condensed';
+                    font-weight: 700;
+                    font-size: 6em;
+                    margin-bottom: 2em;
+                    border: 1px solid white;
+                    position: relative;
+                    a {
+                        color: white;
+                    }
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 0.5em;
+                        height: 100%;
+                        background: linear-gradient(to top, transparent, white);
+                        opacity: 0.4;
+                        transition: .5s;
+                        transform: translateX(-2em) skewX(-45deg);
+                    }
+                    &:hover {
+                        &::before {
+                            animation: move-light 0.7s;
+                        }
+                    }
+                }
+                &_drive2 {
+                    display: block;
+                    color: white;
+                    font-family: 'Saira Condensed';
+                    font-weight: 700;
+                    font-size: 4em;
+                }
+                .narrow {
+                    @include flex-row;
+                    justify-content: center;
+                    margin-top: 7em;
+                }
+            } 
+        }
+        .main_inner {
+            @include flex-col;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 25px 15px;
+            .main_flow1 {
+                transition: 0.5s;
+                position: relative;
+                @include flex-row;
+                flex-wrap: wrap;
+                margin-bottom: 20px;
+                width: 100%;
+                border: 1px solid grey;
+                border-radius: 3px;
+                box-shadow: 1px 2px 3px grey;
+                &_img {
+                    width: 50%;
+                    img {
+                        width: 100%;
+                    }               
+                }
+                &_text {
+                    width: 50%;
+                    background-color: rgba(2, 140, 231, 0.7);
+                    font-family: 'Montserrat';
+                    font-weight: 400;
+                    color: white;
+                    font-size: 1em;
+                    text-align: center;
+                    padding: 20px 30px;
+                    position: relative;
+                    @include flex-col;
+                    justify-content: center;
+                    align-items: center;
+                    &_elem1 {
+                        font-size: 2.3em;
+                        a {
+                            color: white;
+                        }
+                        a:hover {
+                            color: rgb(253, 175, 6);
+                        }
+                    }
+                    &_elem2 {
+                        margin-top: 1em;
+                        &::before {
+                            content: '';
+                            display: block;
+                            width: 10em;
+                            height: 0.2em;
+                            background-color: orange;
+                        }
+                    }
+                    &_elem3 {
+                        margin-top: 1.5em;
+                    }
+                    &_elem4 {
+                        margin-top: 2em;
+                    }
+                }
+           
+                .js-popup-backgruond {
+                    width: 100%;
+                    height: 100%;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    z-index: 3;
+                    background-color: rgba(1, 1, 1, .8);
+                    display: none;
+                    &.active {
+                        display: block;
+                    }
+                }
+                .js-window-popup {
+                    padding: 20px;
+                    position: fixed;
+                    max-width: 400px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 4;
+                    background-color: white;
+                    display: none;
+                    &.active {
+                        display: block;
+                    }
+                    .js-close-popup {
+                        background-image: url('../../images/cross.png');
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                        border-radius: 50%;
+                        width: 30px;
+                        height: 30px;
+                        position: fixed;
+                        right: 2px;
+                        top: 2px;
+                    }
+                    .form {
+                        padding-top: 20px;
+                        @include flex-col;
+                        justify-content: flex-start;
+                        h1 {
+                            color: black;
+                            min-width: 300px;
+                        }
+                        &_content {
+                            @include flex-col;
+                            justify-content: center;
+                            align-items: center;
+                            &_in, &_comment {
+                                width: 100%;
+                                margin: 10px 0;
+                                height: 40px;
+                                max-width: 300px;
+                            }
+                        }
+                        .btn-form {
+                            align-self: center;
+                            width: 50%;
+                            background-color: #ff9100;
+                            border: 1px solid #ff9100;
+                            border-radius: 5px;
+                            color: white;
+                            text-transform: uppercase;
+                            line-height: 3.3em;
+                            padding: 0 1.3em;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .js-popup-btn {
+                    width: 100%;
+                    max-width: 25em;
+                    background-color: #ff9100;
+                    border: 1px solid #ff9100;
+                    border-radius: 5px;
+                    color: white;
+                    text-transform: uppercase;
+                    line-height: 3.3em;
+                    padding: 0 1.3em;
+                    cursor: pointer;
+                    transition: 0.5s;
+                    font-family: 'Saira Condensed';
+                    font-weight: 700;
+                    font-size: 1em;
+                    &:hover {
+                        background-color: white;
+                        color: orange;
+                        border: 1px solid orange;
+                    }
+                }
+            }
+
+            
+            
+        }
+           
+    }
+}
+@media screen and (min-width:800px) and (max-width:1154px) { 
+    .content {
+        .content_main_business {
+            .main_inner{
+                padding: 25px;
+                @include flex-row;
+                flex-wrap: wrap;
+                .main_flow1 {
+                    @include flex-col;
+                    justify-content: flex-start;
+                    align-items: center;
+                    box-shadow: 1px 2px 10px 5px grey;
+                    width: 47%;
+                    &_img {
+                        width: 100%;
+                        img {
+                            display: block;
+                            margin: auto;
+                        }
+                    }
+                    &_text {
+                        width: 100%;
+                        &_elem1 {
+                            font-size: 30px;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 799px) { 
+    .content {
+        .content_main_business {
+            .main_flow {
+                &_text {
+                    &_drive1 {
+                        display: block;
+                        text-align: center;
+                        color: white;
+                        font-family: 'Saira Condensed';
+                        font-weight: 700;
+                        font-size: 4em;
+                        margin-bottom: 2em;
+                        border: 1px solid white;
+                        position: relative;
+                        a {
+                            color: white;
+                        }
+                    }    
+                    &_drive2 {
+                        padding: 0 15px;
+                        text-align: center;
+                        display: block;
+                        color: white;
+                        font-family: 'Saira Condensed';
+                        font-weight: 700;
+                        font-size: 2em;
+                    }
+                }
+            }            
+            .main_inner{
+                padding: 5px;
+                @include flex-row;
+                justify-content: center;
+                flex-wrap: wrap;
+                .main_flow1 {
+                    @include flex-col;
+                    justify-content: flex-start;
+                    align-items: center;
+                    box-shadow: 1px 2px 10px 5px grey;
+                    width: 90%;
+                    &_img {
+                        width: 100%;
+                    }
+                    &_text {
+                        width: 100%;
+                        &_elem1 {
+                            font-size: 20px;
+                        }
+                        &_elem3 {
+                            font-size: 13px;
+                        }    
+                        &_elem4 {
+                            font-size: 14px;
+                        
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

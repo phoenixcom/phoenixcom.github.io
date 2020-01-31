@@ -1,0 +1,88 @@
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+@mixin flex-col {
+    display: flex;
+    flex-direction: column;
+}
+@mixin media-min($width) {
+    @media only screen and (min-width: $width) {
+      @content;
+    }
+  }
+  
+  @mixin media-max($width) {
+    @media only screen and (max-width: $width) {
+      @content;
+    }
+  }
+  
+  @mixin media-lock($width-min, $width-max) {
+    @media only screen and (min-width: #{$width-min}) and (max-width: #{$width-max}) {
+      @content;
+    }
+  }
+  
+  @mixin locked-prop($prop, $value-map, $is-media-extended: false) { // @include locked-prop(font-size, (320px: 14px, 1024px: 31px), true);
+    $width-min: nth(map-keys($value-map), 1);
+    $width-max: nth(map-keys($value-map), 2);
+    $value-max: map-get($value-map, $width-max);
+    $value-min: map-get($value-map, $width-min);
+    $values-diff: $value-max - $value-min;
+    $widths-diff: $width-max - $width-min;
+    $m: $values-diff / $widths-diff;
+    $b: $value-max - $m * $width-max;
+    $y: $m + $b;
+  
+    @include media-lock($width-min, $width-max) {
+      #{$prop}: calc(#{$m*100}vw + #{$b});
+    }
+    @if $is-media-extended {
+      @include media-min($width-max) {
+        #{$prop}: $value-max;
+      }
+      @include media-max($width-min) {
+        #{$prop}: $value-min;
+      }
+    }
+  }
+  
+  @mixin aspect-ratio($width, $height) {
+    position: relative;
+  
+    &:before {
+      content: "";
+      display: block;
+      padding-bottom: floor($height / $width * 10000) / 10000 * 100%;
+    }
+  
+    > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  @mixin triangle($direction, $size, $color) {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+  
+    @if $direction == top {
+      border-width: 0 $size $size $size;
+      border-bottom-color: $color;
+    } @else if $direction == bottom {
+      border-width: $size $size 0 $size;
+      border-top-color: $color;
+    } @else if $direction == right {
+      border-width: $size 0 $size $size;
+      border-left-color: $color;
+    } @else if $direction == left {
+      border-width: $size $size $size 0;
+      border-right-color: $color;
+    }
+  }

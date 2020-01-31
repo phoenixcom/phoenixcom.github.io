@@ -1,0 +1,197 @@
+.about {
+    margin: 0 auto;
+    max-width: 1200px;
+    background-color: rgba(255, 255, 255, .7);
+    &_img {
+        @include flex-row;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        img {
+            width: 100%;
+            opacity: .7;
+        }
+        .center_position {
+            font-family: 'Montserrat';
+            font-weight: 700;
+            font-size: 40px;
+            color: white;
+            position: absolute;
+            left: 50%;
+            z-index: 1;
+            margin-left: 40px;
+            
+        }      
+    }
+    &_text {
+        @include flex-col; 
+        justify-content: flex-start;
+        align-items: center;
+        p {
+            color: rgb(48, 23, 7);
+            padding: 25px;
+            font-size: 25px;
+            line-height: 30px;
+            .bold {
+                font-weight: 700;
+            }
+        }
+    }
+    .cardsAbout {
+        @include flex-row;
+        justify-content: space-between;
+        padding: 25px;
+        position: relative;
+        .card {
+            @include flex-col;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            width: 30%;
+            padding: 15px;
+            h2 {
+                font-weight: 700;
+                font-size: 23px;
+                color: rgb(75, 50, 0);
+                text-shadow: 1px 2px 2px grey;
+                padding: 10px 0;
+                line-height: 27px;
+            }
+            p {
+                padding: 10px;
+            }
+        }
+    }
+    .cardsAbout::after {
+        content: '';
+        display: inline-block;
+        width: 95%;
+        height: 5px;
+        background-image: linear-gradient(to right, orange, rgb(151, 71, 5));
+        position: absolute;
+        top: -10px;
+    }
+    .cardsAbout::before {
+        content: '';
+        display: inline-block;
+        width: 95%;
+        height: 5px;
+        background-image: linear-gradient(to right, rgb(151, 71, 5), orange);
+        position: absolute;
+        bottom: 10px;
+    }
+    .advantages {
+        @include flex-row;
+        padding: 25px;
+        h1 {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 25px;
+        }
+        ul {
+            padding: 20px 0 20px 40px;
+            li {
+                list-style-type: square;
+                line-height: 35px;
+                font-size: 25px;
+            }
+        }
+        .img-right {
+            @include flex-row;
+            justify-content: center;
+            img {
+                align-self: center;
+                width: 50%;
+                border-radius: 40%;
+            }
+        }
+    }
+    .trust {
+        .trust-text {
+            display: block;
+            font-family: 'Montserrat';
+            font-weight: 700;
+            color: rgb(75, 50, 0);
+            font-size: 25px;
+            text-transform: uppercase;
+            margin: 60px 0 30px 125px;
+            position: relative;
+        }
+        .trust-text::after {
+            content: '';
+            display: inline-block;
+            width: 45%;
+            height: 5px;
+            background-image: linear-gradient(to right, orange, rgb(151, 71, 5));
+            position: absolute;
+            top: -40px;
+            left: -95px;
+        }
+    }
+    .swiper-container {
+        width: 100%;
+        background: rgba(1, 1, 1, 0.1);
+        .swiper-slide {
+            @include flex-row;
+            justify-content: center;
+            align-items: center;
+            div {
+                @include flex-row;
+                justify-content: center;
+                align-items: center;
+                width: 200px;
+                height: 200px;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    } 
+}
+@media screen /* and (min-width: 760px)  */and (max-width: 1017px) {
+    .about {
+        &_img {
+            .center_position {
+                font-family: 'Montserrat';
+                font-weight: 700;
+                font-size: 30px;
+                color: white;
+                position: absolute;
+                left: 20%;
+                z-index: 1;
+                margin-left: 20px;
+            
+            } 
+        }
+        &_text {
+            p {
+                font-size: 20px;
+            }
+        }
+        .cardsAbout {
+            justify-content: space-around;
+            flex-wrap: wrap;
+            .card {
+                width: 285px;
+            }
+        }
+        .advantages {
+            @include flex-col;
+            h1 {
+                text-align: center;
+                font-size: 22px;
+            }
+            ul {
+                padding: 20px 0 20px 40px;
+                li {
+                    list-style-type: square;
+                    line-height: 35px;
+                    font-size: 20px;
+                }
+            }
+            .img-right {
+                display: none;
+            }
+        }
+    }
+}

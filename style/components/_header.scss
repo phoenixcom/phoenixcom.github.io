@@ -1,0 +1,114 @@
+.header {
+    margin: 0 auto;
+    max-width: 1200px;
+    @include flex-row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    &_logo {
+        @include flex-row;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        .logoPhoenix {
+            margin-right: 15px;
+            img {
+                height: 70px;
+                width: 70px;
+                border-radius: 50%;
+                
+            }
+        }
+        .logoPhoenix:active {
+            transform: scale(0.97);
+        }
+        .main_logo {
+            .name_logo1 {
+                font-family: 'Montserrat';
+                font-weight: 700;
+            }
+            .name_logo2 {
+                font-size: 39px;
+                font-family: 'Montserrat';
+                font-weight: 700;
+            }
+        }
+    }
+    .navigation {
+        @include flex-row;
+        justify-content: space-between;
+        @include media-max(1023px) {
+            position: fixed;
+            height: 100%;
+            right: 0;
+            top: 0;
+            padding: 100px 50px 20px;
+            background-color: rgba(0, 0, 0, .7);
+            transform: translateX(100%);
+            transition: .25s;
+            z-index: 9;
+            &.active {
+                display: block;
+                transform: none;
+            }
+        }
+        .homepage {
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            a {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        .homepage:active {
+            transform: scale(0.9);
+        }
+        ul {
+            margin-right: 30px;
+            line-height: 36px;
+            @include flex-row;
+            @include media-max(1023px) {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                margin-bottom: 15px;
+               
+            }
+            li {
+                text-transform: uppercase;
+                +li {
+                    margin-left: 25px;
+                    @include media-max(1023px) {
+                        margin-left: 0;
+                        margin-top: 20px;
+                    }
+                }
+                a {
+                    color: white;
+                    padding: 7px 0;
+                }
+            }
+        
+        }
+    }
+}
+@media screen and (max-width:560px) { /* media must use from mixins in helpers */
+    .header {
+        &_logo{
+            .main_logo {
+                .name_logo1 {
+                    font-family: 'Montserrat';
+                    font-weight: 700;
+                    font-size: 14px;
+                }
+                .name_logo2 {
+                    font-size: 32px;
+                    font-family: 'Montserrat';
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+.footer {
+    margin: 0 auto;
+    max-width: 1200px;
+    @include flex-row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    &_icons {
+        @include flex-row;
+        .vk, .fb, .insta, .in {
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+        }
+    }
+    &_contacts {
+        .footer_tel {
+            margin: 10px;
+            color: white;
+            @include flex-row;
+            align-items: center;
+            img {
+                width: 1.5em;
+                height: 1.5em;
+            }
+            .telephones {
+                @include flex-row;
+                justify-content: center;
+                .tel1 {
+                    margin-right: 15px;
+                }
+            }
+        }
+        .footer_email {
+            margin: 10px;
+            color: white;
+            margin-left: 30px;
+            @include flex-row;
+            align-items: center;
+            text-align: center;
+            img {
+                width: 1.5em;
+                height: 1.5em;
+            }
+        }
+    }
+    .footer-text {
+        color: white;
+        font-weight: 700;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width:560px) {
+    .footer {
+        &_contacts {
+            justify-content: center;
+            .footer_tel {
+                .telephones {
+                    @include flex-row;
+                    justify-content: flex-start;
+                    flex-wrap: wrap;
+                    .tel1, .tel2 {
+                        margin-left: 5px;
+                        padding:7px;
+                        @include flex-row;
+                        justify-content: center;
+                    }
+                }    
+            }
+        }
+    }
+}

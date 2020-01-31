@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-image: url('../../images/Wheat_fields.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-width: 320px;
+    display: flex;
+	flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    
+}
+header {
+   /*  background-image: url('../../images/header_podsolnuhy.png');
+    background-repeat: no-repeat;
+    background-size: cover; */
+    padding: 20px;
+    background: linear-gradient(rgba(119, 201, 183, .7), rgba(99, 112, 122, .8));
+    
+}
+main {
+    flex-grow: 1;
+}
+footer {
+    background: linear-gradient(rgba(119, 201, 183, .5), rgba(99, 112, 122, .8));
+    padding: 30px;
+    flex-shrink: 0;
+}
+

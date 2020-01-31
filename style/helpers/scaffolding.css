@@ -1,0 +1,13 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+}
+
+header {
+  border-bottom: 1px solid grey;
+}
+/*# sourceMappingURL=scaffolding.css.map */
